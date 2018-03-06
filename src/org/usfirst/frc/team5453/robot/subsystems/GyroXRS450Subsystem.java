@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.SPI;
 
-public class GyroSubsystem extends Subsystem{
+public class GyroXRS450Subsystem extends Subsystem{
 	ADXRS450_Gyro xrs450=new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
-	public GyroSubsystem(){
+	public GyroXRS450Subsystem(){
 		System.out.println("Init gyro subsystem.");
 	}
 	

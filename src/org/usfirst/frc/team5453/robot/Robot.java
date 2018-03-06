@@ -11,7 +11,7 @@ import org.usfirst.frc.team5453.robot.subsystems.*;
 
 public class Robot extends TimedRobot{
 	public static final DrivingSubsystem drivingSys=new DrivingSubsystem();
-	public static final GyroSubsystem gyroSys=new GyroSubsystem();
+	public static final GyroAHRSSubsystem gyroSys=new GyroAHRSSubsystem();
 	public static final PowerSubsystem powerSys=new PowerSubsystem();
 	public static final ElevatorSubsystem elevatorSys=new ElevatorSubsystem();
 	public static final IntakeSubsystem intakeSys=new IntakeSubsystem();
