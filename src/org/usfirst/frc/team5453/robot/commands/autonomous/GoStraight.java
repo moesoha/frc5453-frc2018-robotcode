@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5453.robot.Robot;
 import org.usfirst.frc.team5453.robot.RobotMap;
 
-public class GoStraight extends Command {
+public class GoStraight extends Command{
 	long stopTimestamp;
 	long timeToExecute=10000;
 	

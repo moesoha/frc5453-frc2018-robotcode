@@ -32,7 +32,7 @@ public class Robot extends TimedRobot{
 		oi=new OI();
 		powerSys.initTable();
 		
-		chooser.addDefault("Still",new org.usfirst.frc.team5453.robot.commands.autonomous.Still());
+		chooser.addDefault("Still !",new org.usfirst.frc.team5453.robot.commands.autonomous.Still());
 		chooser.addObject("Go straight",new org.usfirst.frc.team5453.robot.commands.autonomous.GoStraight());
 		SmartDashboard.putData("Auto mode",chooser);
 		gyroSys.reset();
