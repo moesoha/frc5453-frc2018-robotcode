@@ -58,4 +58,8 @@ public class RobotMap{
 	public static int joystickIntakeOut=4;
 	public static int joystickIntakeClockwise=3;
 	public static int joystickIntakeAntiClockwise=1;
+	
+	/* Encoder Parameter */
+	public static double encoderPulsePerRevolution=1440;
+	public static double encoderChassisDistancePerPulse=6*Math.PI/encoderPulsePerRevolution; // inch
 }

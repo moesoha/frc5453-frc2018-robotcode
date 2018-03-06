@@ -36,6 +36,8 @@ public class DrivingSubsystem extends Subsystem{
 			new Encoder(RobotMap.dioEncoderRightChannel[0],RobotMap.dioEncoderRightChannel[1])
 		};
 		encoder[0].setReverseDirection(true);
+		encoder[0].setDistancePerPulse(RobotMap.encoderChassisDistancePerPulse);
+		encoder[1].setDistancePerPulse(RobotMap.encoderChassisDistancePerPulse);
 	}
 	
 	public void initDefaultCommand(){
@@ -94,6 +96,11 @@ public class DrivingSubsystem extends Subsystem{
 			encoder[0].getDistance(),
 			encoder[1].getDistance()
 		};
+	}
+
+	public void encoderReset(){
+		encoder[0].reset();
+		encoder[1].reset();
 	}
 	
 	public void arcadeDrive(double x,double y,boolean squared){
