@@ -7,6 +7,7 @@ public class GoWithEncoderCommand extends Command{
 	double distance=0;
 	double speedRate=0.6;
 
+	boolean timeLimitation=false;
 	long maxExecutionTime=5000;
 	long stopTimestamp;
 	
@@ -21,6 +22,14 @@ public class GoWithEncoderCommand extends Command{
 		distance=dst;
 		speedRate=spdRate;
 	}
+
+	public GoWithEncoderCommand(double dst,double spdRate,long timeLimit){
+		requires(Robot.drivingSys);
+		distance=dst;
+		speedRate=spdRate;
+		timeLimitation=true;
+		maxExecutionTime=timeLimit;
+	}
 	
 	protected void initialize(){
 		System.out.println("GoWithEncoderCommand("+distance+") is initialized.");
@@ -33,7 +42,9 @@ public class GoWithEncoderCommand extends Command{
 	}
 
 	protected boolean isFinished(){
-		return (distance>=Robot.drivingSys.encoderGetDistance()[1])||(stopTimestamp<=System.currentTimeMillis());
+		double[] distances=Robot.drivingSys.encoderGetDistance();
+		double distanceAvg=(distances[0]+distances[1])/2;
+		return (distance>=distanceAvg)||((stopTimestamp<=System.currentTimeMillis())&&(timeLimitation));
 	}
 
 	protected void end(){

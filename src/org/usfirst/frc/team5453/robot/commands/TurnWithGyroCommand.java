@@ -7,7 +7,8 @@ public class TurnWithGyroCommand extends Command{
 	double dstAngle=0;
 	double speedRate=0.6;
 
-	long maxExecutionTime=10000;
+	boolean timeLimitation=false;
+	long maxExecutionTime=5000;
 	long stopTimestamp;
 	
 	// Here `angle`, positive is clockwise, negative is anticlockwise.
@@ -21,7 +22,15 @@ public class TurnWithGyroCommand extends Command{
 		dstAngle=angle;
 		speedRate=spdRate;
 	}
-	
+
+	public TurnWithGyroCommand(double angle,double spdRate,long timeLimit){
+		requires(Robot.drivingSys);
+		dstAngle=angle;
+		speedRate=spdRate;
+		timeLimitation=true;
+		maxExecutionTime=timeLimit;
+	}
+
 	protected void initialize(){
 		System.out.println("TurnWithGyroCommand("+dstAngle+") is initialized.");
 		stopTimestamp=System.currentTimeMillis()+maxExecutionTime;
@@ -37,7 +46,7 @@ public class TurnWithGyroCommand extends Command{
 		// How to get yaw angle?
 		// Refer to GyroAHRSSubsystem
 		// is BoardYawAxis correct?
-		return (false/*Here is Gyro judging*/)||(stopTimestamp<=System.currentTimeMillis());
+		return (false/*Here is Gyro judging*/)||((stopTimestamp<=System.currentTimeMillis())&&(timeLimitation));
 	}
 
 	protected void end(){
