@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand;
 import org.usfirst.frc.team5453.robot.subsystems.*;
 
 public class Robot extends TimedRobot{
@@ -33,7 +34,7 @@ public class Robot extends TimedRobot{
 		powerSys.initTable();
 		
 		chooser.addDefault("Still !",new org.usfirst.frc.team5453.robot.commands.autonomous.Still());
-		chooser.addObject("Go straight",new org.usfirst.frc.team5453.robot.commands.autonomous.GoStraight());
+		chooser.addObject("Go straight",new TimedGoStraightCommand(0.44,10000));
 		SmartDashboard.putData("Auto mode",chooser);
 		gyroSys.reset();
 	}
