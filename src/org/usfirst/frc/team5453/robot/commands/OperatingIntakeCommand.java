@@ -31,12 +31,12 @@ public class OperatingIntakeCommand extends Command{
 	}
 
 	protected void end(){
-		System.out.println("OperatingIntakeCommand("+speed+(setInverted?",inverted":"")+") is ended.");
 		Robot.intakeSys.reset();
+		System.out.println("OperatingIntakeCommand("+speed+(setInverted?",inverted":"")+") is ended.");
 	}
 
 	protected void interrupted(){
 		System.out.println("OperatingIntakeCommand("+speed+(setInverted?",inverted":"")+") is interrupted.");
-		Robot.intakeSys.reset();
+		end();
 	}
 }

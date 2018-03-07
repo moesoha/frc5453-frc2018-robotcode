@@ -48,12 +48,12 @@ public class GoWithEncoderCommand extends Command{
 	}
 
 	protected void end(){
-		System.out.println("GoWithEncoderCommand("+distance+") is ended.");
 		Robot.drivingSys.resetMotors();
+		System.out.println("GoWithEncoderCommand("+distance+") is ended.");
 	}
 
 	protected void interrupted(){
 		System.out.println("GoWithEncoderCommand("+distance+") is interrupted.");
-		Robot.drivingSys.resetMotors();
+		end();
 	}
 }

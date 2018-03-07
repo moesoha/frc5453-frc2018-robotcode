@@ -28,12 +28,12 @@ public class TimedElevatorCommand extends Command{
 	}
 
 	protected void end(){
-		System.out.println("TimedElevatorCommand("+speed+","+timeToExecute+") is ended.");
 		Robot.elevatorSys.reset();
+		System.out.println("TimedElevatorCommand("+speed+","+timeToExecute+") is ended.");
 	}
 
 	protected void interrupted(){
 		System.out.println("TimedElevatorCommand("+speed+","+timeToExecute+") is interrupted.");
-		Robot.elevatorSys.reset();
+		end();
 	}
 }

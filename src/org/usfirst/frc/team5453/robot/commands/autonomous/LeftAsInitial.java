@@ -2,7 +2,6 @@ package org.usfirst.frc.team5453.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.DriverStation;
-import org.usfirst.frc.team5453.robot.Robot;
 
 public class LeftAsInitial extends Command{
 	char here='L';

@@ -6,6 +6,7 @@ import org.usfirst.frc.team5453.robot.Robot;
 public class TurnWithGyroCommand extends Command{
 	double dstAngle=0;
 	double speedRate=0.6;
+	double angleT;
 
 	boolean timeLimitation=false;
 	long maxExecutionTime=5000;
@@ -35,7 +36,7 @@ public class TurnWithGyroCommand extends Command{
 		System.out.println("TurnWithGyroCommand("+dstAngle+") is initialized.");
 		stopTimestamp=System.currentTimeMillis()+maxExecutionTime;
 		Robot.gyroSys.reset();
-		double andle=Robot.gyroSys.getHeading();
+		angleT=Robot.gyroSys.getHeading();
 	}
 
 	protected void execute(){
@@ -52,12 +53,12 @@ public class TurnWithGyroCommand extends Command{
 	}
 
 	protected void end(){
-		System.out.println("TurnWithGyroCommand("+dstAngle+") is ended.");
 		Robot.drivingSys.resetMotors();
+		System.out.println("TurnWithGyroCommand("+dstAngle+") is ended.");
 	}
 
 	protected void interrupted(){
 		System.out.println("TurnWithGyroCommand("+dstAngle+") is interrupted.");
-		Robot.drivingSys.resetMotors();
+		end();
 	}
 }

@@ -29,12 +29,12 @@ public class TimedGoStraightCommand extends Command{
 	}
 
 	protected void end(){
-		System.out.println("TimedGoStraightCommand("+speed+","+timeToExecute+") is ended.");
 		Robot.drivingSys.resetMotors();
+		System.out.println("TimedGoStraightCommand("+speed+","+timeToExecute+") is ended.");
 	}
 
 	protected void interrupted(){
 		System.out.println("TimedGoStraightCommand("+speed+","+timeToExecute+") is interrupted.");
-		Robot.drivingSys.resetMotors();
+		end();
 	}
 }

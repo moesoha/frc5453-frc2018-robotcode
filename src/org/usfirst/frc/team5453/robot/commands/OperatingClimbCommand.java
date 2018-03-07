@@ -26,12 +26,12 @@ public class OperatingClimbCommand extends Command{
 	}
 
 	protected void end(){
-		System.out.println("OperatingClimbCommand("+speed+") is ended.");
 		Robot.climbSys.reset();
+		System.out.println("OperatingClimbCommand("+speed+") is ended.");
 	}
 
 	protected void interrupted(){
 		System.out.println("OperatingClimbCommand("+speed+") is interrupted.");
-		Robot.climbSys.reset();
+		end();
 	}
 }

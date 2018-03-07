@@ -35,5 +35,6 @@ public class DrivingCommand extends Command{
 
 	protected void interrupted(){
 		System.out.println("DrivingCommand is interrupted.");
+		end();
 	}
 }

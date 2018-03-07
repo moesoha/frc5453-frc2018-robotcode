@@ -24,12 +24,12 @@ public class OperatingElevatorCommand extends Command{
 	}
 
 	protected void end(){
-		System.out.println("OperatingElevatorCommand("+speed+") is ended.");
 		Robot.elevatorSys.reset();
+		System.out.println("OperatingElevatorCommand("+speed+") is ended.");
 	}
 
 	protected void interrupted(){
 		System.out.println("OperatingElevatorCommand("+speed+") is interrupted.");
-		Robot.elevatorSys.reset();
+		end();
 	}
 }

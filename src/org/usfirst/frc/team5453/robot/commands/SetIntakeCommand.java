@@ -36,5 +36,6 @@ public class SetIntakeCommand extends Command{
 
 	protected void interrupted(){
 		System.out.println("SetIntakeCommand("+speed+(setInverted?",inverted":"")+") is interrupted.");
+		end();
 	}
 }

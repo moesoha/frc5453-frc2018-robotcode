@@ -21,5 +21,6 @@ public class Still extends Command{
 
 	protected void interrupted(){
 		System.out.println("AutonomousCommand is interrupted.");
+		end();
 	}
 }
