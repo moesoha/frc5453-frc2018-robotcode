@@ -19,7 +19,7 @@ public class LeftAsInitial extends Command{
 		}else if(colorLocationString.charAt(1)==here){
 			new SideStationToSameSideScale(false).start();
 		}else{
-			
+			new SideStationToAnotherSideScale(false).start();
 		}
 	}
 
