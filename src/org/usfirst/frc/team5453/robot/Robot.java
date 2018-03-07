@@ -35,7 +35,7 @@ public class Robot extends TimedRobot{
 		chooser.addDefault("Go straight",new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.44,10000));
 		chooser.addObject("<- at LEFT",new org.usfirst.frc.team5453.robot.commands.autonomous.LeftAsInitial());
 		chooser.addObject("at RIGHT ->",new org.usfirst.frc.team5453.robot.commands.autonomous.RightAsInitial());
-		// chooser.addObject("at | CENTER",new org.usfirst.frc.team5453.robot.commands.autonomous.Still());
+		chooser.addObject("at | CENTER",new org.usfirst.frc.team5453.robot.commands.autonomous.CenterAsInitial());
 		chooser.addObject("Still !",new org.usfirst.frc.team5453.robot.commands.autonomous.Still());
 		SmartDashboard.putData("Auto mode",chooser);
 		gyroSys.reset();
