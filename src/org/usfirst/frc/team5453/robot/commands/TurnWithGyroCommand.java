@@ -34,6 +34,8 @@ public class TurnWithGyroCommand extends Command{
 	protected void initialize(){
 		System.out.println("TurnWithGyroCommand("+dstAngle+") is initialized.");
 		stopTimestamp=System.currentTimeMillis()+maxExecutionTime;
+		Robot.gyroSys.reset();
+		double andle=Robot.gyroSys.getHeading();
 	}
 
 	protected void execute(){
