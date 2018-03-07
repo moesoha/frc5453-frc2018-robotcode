@@ -11,32 +11,15 @@ public class LeftAsInitial extends Command{
 	protected void initialize(){
 		System.out.println("Auto. Command: INITIAL_LOCATION_LEFT");
 	}
-	
-	private void doNearestSwitch(){
-		
-	}
-	
-	private void doNearestAnotherSideSwitch(){
-		new SideStationToSameSideSwitchA(false).start();
-	}
-
-	private void doScale(){
-		
-	}
-	
-	private void doAnotherSideScale(){
-		
-	}
 
 	protected void execute(){
 		String colorLocationString=DriverStation.getInstance().getGameSpecificMessage();
 		if(colorLocationString.charAt(0)==here){
-			doNearestSwitch();
+			new SideStationToSameSideSwitchA(false).start();
 		}else if(colorLocationString.charAt(1)==here){
-			doScale();
+			new SideStationToSameSideScale(false).start();
 		}else{
-			doNearestAnotherSideSwitch();
-			doAnotherSideScale();
+			
 		}
 	}
 
