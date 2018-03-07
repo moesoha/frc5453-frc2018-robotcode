@@ -5,8 +5,10 @@ import org.usfirst.frc.team5453.robot.Robot;
 
 public class TurnWithGyroCommand extends Command{
 	double dstAngle=0;
-	double speedRate=0.6;
+	double speedRate=0;
+	double dltAngle;
 	double angleT;
+	boolean grdSpeed=false;
 
 	boolean timeLimitation=false;
 	long maxExecutionTime=5000;
@@ -16,6 +18,7 @@ public class TurnWithGyroCommand extends Command{
 	public TurnWithGyroCommand(double angle){
 		requires(Robot.drivingSys);
 		dstAngle=angle;
+		
 	}
 
 	public TurnWithGyroCommand(double angle,double spdRate){
@@ -37,19 +40,35 @@ public class TurnWithGyroCommand extends Command{
 		stopTimestamp=System.currentTimeMillis()+maxExecutionTime;
 		Robot.gyroSys.reset();
 		angleT=Robot.gyroSys.getHeading();
+		dltAngle=Math.abs(dstAngle-angleT);
 	}
 
 	protected void execute(){
+		if(speedRate==0){
+			grdSpeed=true;
+		}
+		if(grdSpeed){
+			if(dltAngle<20){
+				speedRate=0.44;
+			}else if(dltAngle<50){
+				speedRate=0.6;
+			}else if(dltAngle<90){
+				speedRate=0.76;
+			}else{
+				speedRate=0.9;
+			}
+		}
 		Robot.drivingSys.tankDrive((dstAngle>=0?-1:1)*speedRate,(dstAngle>=0?-1:1)*speedRate,false);
 	}
 
 	protected boolean isFinished(){
+		dltAngle=Math.abs(dstAngle-Robot.gyroSys.getHeading());
 		// NOTICE
 		// Here is not finished yet.
 		// How to get yaw angle?
 		// Refer to GyroAHRSSubsystem
 		// is BoardYawAxis correct?
-		return (false/*Here is Gyro judging*/)||((stopTimestamp<=System.currentTimeMillis())&&(timeLimitation));
+		return (Math.abs(dltAngle)<=2)||((stopTimestamp<=System.currentTimeMillis())&&(timeLimitation));
 	}
 
 	protected void end(){

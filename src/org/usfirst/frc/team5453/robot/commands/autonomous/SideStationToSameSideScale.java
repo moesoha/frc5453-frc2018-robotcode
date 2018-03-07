@@ -26,7 +26,7 @@ public class SideStationToSameSideScale extends CommandGroup{
 		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant,false));
 
 		addSequential(new GoWithEncoderCommand(FieldSize.fromStationToScaleLength-FieldSize.robotLength/2-7,0.8));
-		addSequential(new TurnWithGyroCommand((scaleAtLeft?-1:1)*80),0.6);
+		addSequential(new TurnWithGyroCommand((scaleAtLeft?-1:1)*80));
 		addSequential(new TimedGoStraightCommand(0.6,500));
 		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant*-1,false));
 	}

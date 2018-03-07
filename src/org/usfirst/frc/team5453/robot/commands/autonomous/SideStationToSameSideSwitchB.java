@@ -27,9 +27,9 @@ public class SideStationToSameSideSwitchB extends CommandGroup{
 		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant,false));
 
 		addSequential(new TimedGoStraightCommand(0.56,666));
-		addSequential(new TurnWithGyroCommand((switchAtLeft?-1:1)*76),0.6);
+		addSequential(new TurnWithGyroCommand((switchAtLeft?-1:1)*76));
 		addSequential(new GoWithEncoderCommand(FieldSize.fromLengthSideToSwitchLength-FieldSize.portalWidth+8,0.6));
-		addSequential(new TurnWithGyroCommand((switchAtLeft?1:-1)*86),0.57);
+		addSequential(new TurnWithGyroCommand((switchAtLeft?1:-1)*86));
 		addSequential(new TimedGoStraightCommand(0.66,1000));
 		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant*-1,false));
 	}
