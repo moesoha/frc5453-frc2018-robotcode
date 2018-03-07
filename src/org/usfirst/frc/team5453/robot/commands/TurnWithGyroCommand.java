@@ -7,6 +7,8 @@ public class TurnWithGyroCommand extends Command{
 	double dstAngle=0;
 	double speedRate=0.6;
 
+	long maxExecutionTime=10000;
+	long stopTimestamp;
 	
 	// Here `angle`, positive is clockwise, negative is anticlockwise.
 	public TurnWithGyroCommand(double angle){
@@ -22,6 +24,7 @@ public class TurnWithGyroCommand extends Command{
 	
 	protected void initialize(){
 		System.out.println("TurnWithGyroCommand("+dstAngle+") is initialized.");
+		stopTimestamp=System.currentTimeMillis()+maxExecutionTime;
 	}
 
 	protected void execute(){
@@ -34,7 +37,7 @@ public class TurnWithGyroCommand extends Command{
 		// How to get yaw angle?
 		// Refer to GyroAHRSSubsystem
 		// is BoardYawAxis correct?
-		return true;
+		return (false/*Here is Gyro judging*/)||(stopTimestamp<=System.currentTimeMillis());
 	}
 
 	protected void end(){
