@@ -13,6 +13,10 @@ public class FieldSize{
 	public static double portalWidth=48;
 	public static double switchWidth=153.5;
 	public static double switchLength=56;
+	public static double scaleWidth=180;
+	public static double scaleLength=129.5;
+	public static double scalePlateWidth=36;
+	public static double scalePlateLength=48;
 	
 	public static double fromStationToSwitchLength=168;
 	public static double fromLengthSideToSwitchLength=(fieldWidth-switchWidth)/2;
