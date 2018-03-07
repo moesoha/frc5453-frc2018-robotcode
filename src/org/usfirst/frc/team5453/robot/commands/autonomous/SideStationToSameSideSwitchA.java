@@ -17,8 +17,8 @@ public class SideStationToSameSideSwitchA extends CommandGroup{
 		      [R] Scale [B]
 
 
-		------[R] Switch [B]
-		|
+		  ----[R] Switch [B]
+		  |
 		======Driver Station======
 	*/
 	public SideStationToSameSideSwitchA(boolean switchAtLeft){
