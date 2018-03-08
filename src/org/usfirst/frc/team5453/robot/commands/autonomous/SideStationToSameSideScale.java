@@ -23,7 +23,7 @@ public class SideStationToSameSideScale extends CommandGroup{
 	public SideStationToSameSideScale(boolean scaleAtLeft){
 		addSequential(new SleepCommand(300));
 		addParallel(new TheFuckingCommandGroup());
-		addSequential(new GoWithEncoderCommand(FieldSize.fromStationToScaleLength-FieldSize.robotLength/2-7,0.7,0.8));
+		addSequential(new GoWithEncoderCommand(FieldSize.fromStationToScaleLength-FieldSize.robotLength/2-7,0.7,0.85+(scaleAtLeft?0.5:-0.5)));
 		addSequential(new TimedGoStraightCommand(0.2,4000));
 		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedSlowConstant*-1,false),1000);
 		addSequential(new GoWithEncoderCommand(48,0.4));

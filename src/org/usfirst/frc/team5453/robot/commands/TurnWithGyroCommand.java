@@ -49,20 +49,20 @@ public class TurnWithGyroCommand extends Command{
 		}
 		if(grdSpeed){
 			if(dltAngle<20){
-				speedRate=0.44;
+				speedRate=0.48;
 			}else if(dltAngle<50){
-				speedRate=0.6;
+				speedRate=0.5;
 			}else if(dltAngle<90){
-				speedRate=0.76;
+				speedRate=0.54;
 			}else{
-				speedRate=0.9;
+				speedRate=0.6;
 			}
 		}
 		Robot.drivingSys.tankDrive((dstAngle>=0?-1:1)*speedRate,(dstAngle>=0?-1:1)*speedRate,false);
 	}
 
 	protected boolean isFinished(){
-		dltAngle=Math.abs(dstAngle-Robot.gyroSys.getHeading());
+		dltAngle=Math.abs(dstAngle-Robot.gyroSys.getYaw());
 		// NOTICE
 		// Here is not finished yet.
 		// How to get yaw angle?

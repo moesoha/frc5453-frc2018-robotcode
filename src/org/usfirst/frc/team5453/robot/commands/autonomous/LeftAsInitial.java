@@ -14,15 +14,15 @@ public class LeftAsInitial extends Command{
 
 	protected void execute(){
 		String colorLocationString=DriverStation.getInstance().getGameSpecificMessage();
-		if(colorLocationString.charAt(0)==here){
-			System.out.println("  Auto. Selected: side to same-side switch");
-			new SideStationToSameSideSwitchA(false).start();
-		}else if(colorLocationString.charAt(1)==here){
+		if(colorLocationString.charAt(1)==here){
 			System.out.println("  Auto. Selected: side to same-side scale");
 			new SideStationToSameSideScale(false).start();
+		}else if(colorLocationString.charAt(0)==here){
+			System.out.println("  Auto. Selected: side to same-side switch");
+			new SideStationToSameSideSwitchA(false).start();
 		}else{
 			System.out.println("  Auto. Selected: side to another-side scale");
-			new SideStationToAnotherSideScale(false).start();
+			new org.usfirst.frc.team5453.robot.commands.GoWithEncoderCommand(110,0.7,0.8).start();
 		}
 	}
 

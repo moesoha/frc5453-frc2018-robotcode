@@ -9,7 +9,8 @@ public class GyroAHRSSubsystem extends Subsystem{
 	AHRS ahrs;
 	double angle;
 	boolean isReady=false;
-	double fuckingHeading;
+	double fuckingHeading,lastHeading=0;
+	double awesomeYaw=0;
 
 	public GyroAHRSSubsystem(){
 		System.out.println("Init gyro (naiveX-MXP) subsystem.");
@@ -23,11 +24,21 @@ public class GyroAHRSSubsystem extends Subsystem{
 	public void initDefaultCommand(){}
 
 	public double getHeading(){
-		return ahrs.getFusedHeading();
+		lastHeading=ahrs.getFusedHeading();
+		return lastHeading;
 	}
 	
-	public AHRS.BoardYawAxis getYaw(){
-		return ahrs.getBoardYawAxis();
+	public double getYaw(){
+		double currentHeading=getHeading();
+		double lastDelta=currentHeading-lastHeading;
+		if(lastDelta<-200){
+			awesomeYaw+=360+currentHeading-lastHeading;
+		}else if(lastDelta>200){
+			awesomeYaw-=360+currentHeading-lastHeading;
+		}else{
+			awesomeYaw+=lastDelta;
+		}
+		return awesomeYaw;
 	}
 	
 	public void reset(){

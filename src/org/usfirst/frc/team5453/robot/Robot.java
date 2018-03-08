@@ -27,6 +27,7 @@ public class Robot extends TimedRobot{
 	
 	SendableChooser<Command> chooser=new SendableChooser<>();
 	Command autonomousCommand;
+
 	@Override
 	public void robotInit(){
 		System.out.println("Hello, FRC season 2018!");
@@ -34,7 +35,7 @@ public class Robot extends TimedRobot{
 		oi=new OI();
 		powerSys.initTable();
 		
-		chooser.addDefault("Go straight (Encoder)",new org.usfirst.frc.team5453.robot.commands.GoWithEncoderCommand(110,0.6));
+		chooser.addDefault("Go straight (Encoder)",new org.usfirst.frc.team5453.robot.commands.GoWithEncoderCommand(110,0.7,0.8));
 		chooser.addObject("Go straight (Time)",new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,5000));
 		chooser.addObject("<- at LEFT",new org.usfirst.frc.team5453.robot.commands.autonomous.LeftAsInitial());
 		chooser.addObject("at RIGHT ->",new org.usfirst.frc.team5453.robot.commands.autonomous.RightAsInitial());
@@ -45,6 +46,11 @@ public class Robot extends TimedRobot{
 
 		CameraServer.getInstance().startAutomaticCapture("Camera 0",0);
 		CameraServer.getInstance().startAutomaticCapture("Camera 1",1);
+	}
+
+	@Override
+	public void robotPeriodic(){
+		SmartDashboard.putNumber("Testing/Yaw",gyroSys.getYaw());
 	}
 
 	/**
