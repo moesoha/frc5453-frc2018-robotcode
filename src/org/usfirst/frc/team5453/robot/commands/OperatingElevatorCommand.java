@@ -2,21 +2,26 @@ package org.usfirst.frc.team5453.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5453.robot.Robot;
+import org.usfirst.frc.team5453.robot.RobotMap;
 
 public class OperatingElevatorCommand extends Command{
 	double speed=0;
 
-	public OperatingElevatorCommand(double s){
+	public OperatingElevatorCommand(){
 		requires(Robot.elevatorSys);
-		speed=s;
 	}
 	
 	protected void initialize(){
-		System.out.println("OperatingElevatorCommand("+speed+") is initialized.");
+		System.out.println("OperatingElevatorCommand is initialized.");
 	}
 
 	protected void execute(){
-		Robot.elevatorSys.set(speed);
+		speed=Robot.oi.readAxis(RobotMap.joystickElevatorLever,"operate");
+		if(Math.abs(speed)>=0.02){
+			Robot.elevatorSys.set(speed*RobotMap.operatingElevatorSpeedLeverRate);
+		}else{
+			Robot.elevatorSys.set(0);
+		}
 	}
 
 	protected boolean isFinished(){
@@ -25,11 +30,11 @@ public class OperatingElevatorCommand extends Command{
 
 	protected void end(){
 		Robot.elevatorSys.reset();
-		System.out.println("OperatingElevatorCommand("+speed+") is ended.");
+		System.out.println("OperatingElevatorCommand is ended.");
 	}
 
 	protected void interrupted(){
-		System.out.println("OperatingElevatorCommand("+speed+") is interrupted.");
+		System.out.println("OperatingElevatorCommand is interrupted.");
 		end();
 	}
 }

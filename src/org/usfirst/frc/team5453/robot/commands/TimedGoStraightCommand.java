@@ -21,7 +21,7 @@ public class TimedGoStraightCommand extends Command{
 	}
 
 	protected void execute(){
-		Robot.drivingSys.arcadeDrive(speed,0,RobotMap.drivingSquaredInput);
+		Robot.drivingSys.arcadeDrive(-speed,0,RobotMap.drivingSquaredInput);
 	}
 
 	protected boolean isFinished(){

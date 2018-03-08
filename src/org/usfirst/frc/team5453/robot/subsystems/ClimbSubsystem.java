@@ -10,7 +10,7 @@ public class ClimbSubsystem extends Subsystem{
 	public boolean isMotorBinded=false;
 	
 	public void initDefaultCommand(){
-		setDefaultCommand(new OperatingClimbCommand());
+		// setDefaultCommand(new OperatingClimbCommand());
 		bindMotors();
 	}
 

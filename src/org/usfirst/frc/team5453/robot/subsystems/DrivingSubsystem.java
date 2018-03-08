@@ -39,7 +39,7 @@ public class DrivingSubsystem extends Subsystem{
 		encoder[0].setReverseDirection(true);
 		encoder[0].setDistancePerPulse(RobotMap.encoderChassisDistancePerPulse);
 		encoder[1].setDistancePerPulse(RobotMap.encoderChassisDistancePerPulse);
-		
+
 		isMotorBinded=true;
 	}
 	

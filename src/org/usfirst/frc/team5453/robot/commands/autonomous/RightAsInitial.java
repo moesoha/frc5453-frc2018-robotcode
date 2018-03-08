@@ -15,10 +15,13 @@ public class RightAsInitial extends Command{
 	protected void execute(){
 		String colorLocationString=DriverStation.getInstance().getGameSpecificMessage();
 		if(colorLocationString.charAt(0)==here){
+			System.out.println("  Auto. Selected: side to same-side switch");
 			new SideStationToSameSideSwitchA(true).start();
 		}else if(colorLocationString.charAt(1)==here){
+			System.out.println("  Auto. Selected: side to same-side scale");
 			new SideStationToSameSideScale(true).start();
 		}else{
+			System.out.println("  Auto. Selected: side to another-side scale");
 			new SideStationToAnotherSideScale(true).start();
 		}
 	}

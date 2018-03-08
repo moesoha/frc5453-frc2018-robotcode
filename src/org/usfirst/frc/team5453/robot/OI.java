@@ -18,14 +18,15 @@ public class OI{
 		operating=new Joystick(RobotMap.joystickOperating);
 		
 		/* Binding command and button event */
-		new JoystickButton(driving,RobotMap.joystickElevatorUpFast).whileHeld(new OperatingElevatorCommand(RobotMap.operatingElevatorSpeedFastConstant));
-		new JoystickButton(driving,RobotMap.joystickElevatorDownFast).whileHeld(new OperatingElevatorCommand(-1*RobotMap.operatingElevatorSpeedFastConstant));
-		new JoystickButton(driving,RobotMap.joystickElevatorUpSlow).whileHeld(new OperatingElevatorCommand(RobotMap.operatingElevatorSpeedSlowConstant));
-		new JoystickButton(driving,RobotMap.joystickElevatorDownSlow).whileHeld(new OperatingElevatorCommand(-1*RobotMap.operatingElevatorSpeedSlowConstant));
+		// new JoystickButton(operating,RobotMap.joystickElevatorUpFast).whileHeld(new OperatingElevatorCommand(RobotMap.operatingElevatorSpeedFastConstant));
+		// new JoystickButton(operating,RobotMap.joystickElevatorDownFast).whileHeld(new OperatingElevatorCommand(-1*RobotMap.operatingElevatorSpeedFastConstant));
+		// new JoystickButton(operating,RobotMap.joystickElevatorUpSlow).whileHeld(new OperatingElevatorCommand(RobotMap.operatingElevatorSpeedSlowConstant));
+		// new JoystickButton(operating,RobotMap.joystickElevatorDownSlow).whileHeld(new OperatingElevatorCommand(-1*RobotMap.operatingElevatorSpeedSlowConstant));
 		new JoystickButton(operating,RobotMap.joystickIntakeIn).whileHeld(new OperatingIntakeCommand(RobotMap.operatingIntakeSpeedConstant,false));
 		new JoystickButton(operating,RobotMap.joystickIntakeOut).whileHeld(new OperatingIntakeCommand(-1*RobotMap.operatingIntakeSpeedConstant,false));
 		new JoystickButton(operating,RobotMap.joystickIntakeClockwise).whileHeld(new OperatingIntakeCommand(RobotMap.operatingIntakeSpeedConstant,true));
 		new JoystickButton(operating,RobotMap.joystickIntakeAntiClockwise).whileHeld(new OperatingIntakeCommand(-1*RobotMap.operatingIntakeSpeedConstant,true));
+		new JoystickButton(operating,RobotMap.joystickClimb).whileHeld(new OperatingClimbCommand(RobotMap.operatingClimbSpeedConstant));
 		new JoystickButton(operating,RobotMap.joystickIntakeServoSetFullLeft).whenPressed(new SetIntakeServoCommand(0.0));
 		new JoystickButton(operating,RobotMap.joystickIntakeServoSetFullRight).whenPressed(new SetIntakeServoCommand(2.333));
 	}

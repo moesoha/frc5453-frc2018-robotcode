@@ -33,7 +33,7 @@ public class Robot extends TimedRobot{
 		oi=new OI();
 		powerSys.initTable();
 		
-		chooser.addDefault("Go straight",new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.44,10000));
+		chooser.addDefault("Go straight",new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,10000));
 		chooser.addObject("<- at LEFT",new org.usfirst.frc.team5453.robot.commands.autonomous.LeftAsInitial());
 		chooser.addObject("at RIGHT ->",new org.usfirst.frc.team5453.robot.commands.autonomous.RightAsInitial());
 		chooser.addObject("at | CENTER",new org.usfirst.frc.team5453.robot.commands.autonomous.CenterAsInitial());
@@ -65,6 +65,7 @@ public class Robot extends TimedRobot{
 
 	@Override
 	public void disabledPeriodic(){
+		
 		Scheduler.getInstance().run();
 	}
 

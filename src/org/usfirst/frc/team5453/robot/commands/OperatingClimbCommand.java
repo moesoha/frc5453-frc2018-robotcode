@@ -2,14 +2,13 @@ package org.usfirst.frc.team5453.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5453.robot.Robot;
-import org.usfirst.frc.team5453.robot.RobotMap;
 
 public class OperatingClimbCommand extends Command{
 	double speed=0;
 
-	public OperatingClimbCommand(/*double s*/){
+	public OperatingClimbCommand(double s){
 		requires(Robot.climbSys);
-		//speed=s;
+		speed=s;
 	}
 	
 	protected void initialize(){
@@ -17,8 +16,13 @@ public class OperatingClimbCommand extends Command{
 	}
 
 	protected void execute(){
-		//Robot.climbSys.set(speed);
-		Robot.climbSys.set(Robot.oi.readAxis(RobotMap.joystickClimbLever,"operate"));
+		Robot.climbSys.set(speed);
+		// speed=Robot.oi.readAxis(RobotMap.joystickClimbLever,"operate");
+		// if(speed>=0.2){
+		// 	Robot.climbSys.set(speed);
+		// }else{
+		// 	Robot.climbSys.set(0);
+		// }
 	}
 
 	protected boolean isFinished(){

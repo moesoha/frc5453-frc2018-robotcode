@@ -23,7 +23,7 @@ public class CenterStationToSameSideSwitch extends CommandGroup{
 		======Driver Station======
 	*/
 	public CenterStationToSameSideSwitch(boolean targetSwitchAtLeft){
-		addSequential(new TimedElevatorCommand(RobotMap.operatingElevatorSpeedSlowConstant,700));
+		addSequential(new TimedElevatorCommand(RobotMap.operatingElevatorSpeedLeverRate*0.7,700));
 		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant,false));
 
 		addSequential(new GoWithEncoderCommand(FieldSize.robotLength/2,0.5));

@@ -22,7 +22,7 @@ public class SideStationToSameSideScale extends CommandGroup{
 		======Driver Station======
 	*/
 	public SideStationToSameSideScale(boolean scaleAtLeft){
-		addSequential(new TimedElevatorCommand(RobotMap.operatingElevatorSpeedSlowConstant,1800));
+		addSequential(new TimedElevatorCommand(RobotMap.operatingElevatorSpeedLeverRate*0.7,1800));
 		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant,false));
 
 		addSequential(new GoWithEncoderCommand(FieldSize.fromStationToScaleLength-FieldSize.robotLength/2-7,0.8));

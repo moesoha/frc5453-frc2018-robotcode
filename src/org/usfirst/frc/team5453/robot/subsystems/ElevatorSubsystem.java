@@ -2,13 +2,17 @@ package org.usfirst.frc.team5453.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.VictorSP;
+
+import org.usfirst.frc.team5453.robot.Robot;
 import org.usfirst.frc.team5453.robot.RobotMap;
+import org.usfirst.frc.team5453.robot.commands.OperatingElevatorCommand;
 
 public class ElevatorSubsystem extends Subsystem{
 	private VictorSP[] motor;
 	public boolean isMotorBinded=false;
 	
 	public void initDefaultCommand(){
+		setDefaultCommand(new OperatingElevatorCommand());
 		bindMotors();
 	}
 
@@ -24,7 +28,7 @@ public class ElevatorSubsystem extends Subsystem{
 		motor[0].setSafetyEnabled(false);
 		motor[1].setSafetyEnabled(false);
 		
-		motor[1].setInverted(true);
+		motor[0].setInverted(true);
 
 		isMotorBinded=true;
 	}
