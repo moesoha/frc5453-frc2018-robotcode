@@ -15,6 +15,7 @@ public class Robot extends TimedRobot{
 	public static final PowerSubsystem powerSys=new PowerSubsystem();
 	public static final ElevatorSubsystem elevatorSys=new ElevatorSubsystem();
 	public static final IntakeSubsystem intakeSys=new IntakeSubsystem();
+	public static final IntakeServoSubsystem intakeServoSys=new IntakeServoSubsystem();
 	public static final ClimbSubsystem climbSys=new ClimbSubsystem();
 	
 	public static OI oi;

@@ -26,6 +26,8 @@ public class OI{
 		new JoystickButton(operating,RobotMap.joystickIntakeOut).whileHeld(new OperatingIntakeCommand(-1*RobotMap.operatingIntakeSpeedConstant,false));
 		new JoystickButton(operating,RobotMap.joystickIntakeClockwise).whileHeld(new OperatingIntakeCommand(RobotMap.operatingIntakeSpeedConstant,true));
 		new JoystickButton(operating,RobotMap.joystickIntakeAntiClockwise).whileHeld(new OperatingIntakeCommand(-1*RobotMap.operatingIntakeSpeedConstant,true));
+		new JoystickButton(operating,RobotMap.joystickIntakeServoSetFullLeft).whenPressed(new SetIntakeServoCommand(0.0));
+		new JoystickButton(operating,RobotMap.joystickIntakeServoSetFullRight).whenPressed(new SetIntakeServoCommand(1.0));
 	}
 	
 	public double readAxis(int port,String which){

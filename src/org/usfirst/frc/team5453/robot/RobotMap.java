@@ -17,6 +17,7 @@ public class RobotMap{
 	public static int[] pwmMotorElevator={2,3};
 	public static int[] pwmMotorIntake={4,5};
 	public static int[] pwmMotorClimb={6};
+	public static int pwmServoIntake=7;
 
 	/* DIO Definition */
 	/* Encoder   0-Channel A, 1-Channel B*/
@@ -58,6 +59,8 @@ public class RobotMap{
 	public static int joystickIntakeOut=4;
 	public static int joystickIntakeClockwise=3;
 	public static int joystickIntakeAntiClockwise=1;
+	public static int joystickIntakeServoSetFullLeft=9;
+	public static int joystickIntakeServoSetFullRight=10;
 	
 	/* Encoder Parameter */
 	public static double encoderPulsePerRevolution=1440;
