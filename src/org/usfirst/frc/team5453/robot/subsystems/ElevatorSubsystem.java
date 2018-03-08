@@ -6,6 +6,7 @@ import org.usfirst.frc.team5453.robot.RobotMap;
 
 public class ElevatorSubsystem extends Subsystem{
 	private VictorSP[] motor;
+	public boolean isMotorBinded=false;
 	
 	public void initDefaultCommand(){
 		bindMotors();
@@ -24,6 +25,8 @@ public class ElevatorSubsystem extends Subsystem{
 		motor[1].setSafetyEnabled(false);
 		
 		motor[1].setInverted(true);
+
+		isMotorBinded=true;
 	}
 
 	public void reset(){

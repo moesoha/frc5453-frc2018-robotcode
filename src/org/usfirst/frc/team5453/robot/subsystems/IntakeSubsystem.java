@@ -6,6 +6,7 @@ import org.usfirst.frc.team5453.robot.RobotMap;
 
 public class IntakeSubsystem extends Subsystem{
 	private VictorSP[] motor;
+	public boolean isMotorBinded=false;
 	
 	public void initDefaultCommand(){
 		bindMotors();
@@ -22,6 +23,8 @@ public class IntakeSubsystem extends Subsystem{
 		};
 		motor[0].setSafetyEnabled(false);
 		motor[1].setSafetyEnabled(false);
+
+		isMotorBinded=true;
 	}
 
 	public void reset(){

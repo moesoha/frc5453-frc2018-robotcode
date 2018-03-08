@@ -49,10 +49,18 @@ public class Robot extends TimedRobot{
 	 */
 	@Override
 	public void disabledInit(){
-		// drivingSys.resetMotors();
-		// climbSys.reset();
-		// elevatorSys.reset();
-		// intakeSys.reset();
+		if(drivingSys.isMotorBinded){
+			drivingSys.resetMotors();
+		}
+		if(climbSys.isMotorBinded){
+			climbSys.reset();
+		}
+		if(elevatorSys.isMotorBinded){
+			elevatorSys.reset();
+		}
+		if(intakeSys.isMotorBinded){
+			intakeSys.reset();
+		}
 	}
 
 	@Override

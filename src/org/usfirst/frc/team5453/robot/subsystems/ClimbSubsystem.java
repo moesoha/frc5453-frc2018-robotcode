@@ -7,6 +7,7 @@ import org.usfirst.frc.team5453.robot.commands.OperatingClimbCommand;
 
 public class ClimbSubsystem extends Subsystem{
 	private VictorSP[] motor;
+	public boolean isMotorBinded=false;
 	
 	public void initDefaultCommand(){
 		setDefaultCommand(new OperatingClimbCommand());
@@ -22,6 +23,8 @@ public class ClimbSubsystem extends Subsystem{
 			new VictorSP(RobotMap.pwmMotorClimb[0])
 		};
 		motor[0].setSafetyEnabled(false);
+
+		isMotorBinded=true;
 	}
 
 	public void reset(){

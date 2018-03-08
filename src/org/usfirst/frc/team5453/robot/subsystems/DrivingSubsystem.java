@@ -13,7 +13,8 @@ public class DrivingSubsystem extends Subsystem{
 	private RobotDrive drive;
 	private Encoder[] encoder;
 	
-	boolean tableInited=false,motorBinded=false;
+	boolean tableInited=false;
+	public boolean isMotorBinded=false;
 
 	public DrivingSubsystem(){
 		System.out.println("Init driving subsystem.");
@@ -38,7 +39,8 @@ public class DrivingSubsystem extends Subsystem{
 		encoder[0].setReverseDirection(true);
 		encoder[0].setDistancePerPulse(RobotMap.encoderChassisDistancePerPulse);
 		encoder[1].setDistancePerPulse(RobotMap.encoderChassisDistancePerPulse);
-		motorBinded=true;
+		
+		isMotorBinded=true;
 	}
 	
 	public void initDefaultCommand(){
@@ -47,9 +49,6 @@ public class DrivingSubsystem extends Subsystem{
 	}
 	
 	public void resetMotors(){
-		if(!motorBinded){
-			return;
-		}
 		for(int i=0;i<motor.length;i++){
 			motor[i].stopMotor();
 		}
