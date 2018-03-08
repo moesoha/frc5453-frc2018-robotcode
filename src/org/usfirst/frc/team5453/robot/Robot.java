@@ -81,6 +81,14 @@ public class Robot extends TimedRobot{
 	 */
 	@Override
 	public void autonomousInit(){
+		intakeServoSys.setFullRight();
+		intakeServoSys.setFullLeft();
+		intakeServoSys.setFullRight();
+		intakeServoSys.setFullLeft();
+		intakeServoSys.setFullRight();
+		intakeServoSys.setFullLeft();
+		intakeServoSys.setFullRight();
+
 		colorLoaded=true;
 		colorLocationString=DriverStation.getInstance().getGameSpecificMessage();
 		if(colorLocationString.length()>0){
