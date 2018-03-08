@@ -1,7 +1,6 @@
 package org.usfirst.frc.team5453.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SPI;
@@ -10,6 +9,7 @@ public class GyroAHRSSubsystem extends Subsystem{
 	AHRS ahrs;
 	double angle;
 	boolean isReady=false;
+	double fuckingHeading;
 
 	public GyroAHRSSubsystem(){
 		System.out.println("Init gyro (naiveX-MXP) subsystem.");
@@ -23,7 +23,7 @@ public class GyroAHRSSubsystem extends Subsystem{
 	public void initDefaultCommand(){}
 
 	public double getHeading(){
-		return ahrs.getCompassHeading();
+		return ahrs.getFusedHeading();
 	}
 	
 	public AHRS.BoardYawAxis getYaw(){
@@ -32,5 +32,6 @@ public class GyroAHRSSubsystem extends Subsystem{
 	
 	public void reset(){
 		ahrs.reset();
+		fuckingHeading=getHeading();
 	}
 }

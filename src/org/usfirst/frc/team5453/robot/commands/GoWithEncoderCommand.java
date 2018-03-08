@@ -44,6 +44,7 @@ public class GoWithEncoderCommand extends Command{
 	protected boolean isFinished(){
 		double[] distances=Robot.drivingSys.encoderGetDistance();
 		double distanceAvg=(distances[0]+distances[1])/2;
+		distanceAvg=distances[1]; // Left Encoder is dead.
 		return (distance>=distanceAvg)||((stopTimestamp<=System.currentTimeMillis())&&(timeLimitation));
 	}
 

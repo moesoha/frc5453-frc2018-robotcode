@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5453.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -33,13 +34,17 @@ public class Robot extends TimedRobot{
 		oi=new OI();
 		powerSys.initTable();
 		
-		chooser.addDefault("Go straight",new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,10000));
+		// chooser.addDefault("Go straight",new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,10000));
+		chooser.addDefault("Go straight",new org.usfirst.frc.team5453.robot.commands.GoWithEncoderCommand(110,0.6));
 		chooser.addObject("<- at LEFT",new org.usfirst.frc.team5453.robot.commands.autonomous.LeftAsInitial());
 		chooser.addObject("at RIGHT ->",new org.usfirst.frc.team5453.robot.commands.autonomous.RightAsInitial());
 		chooser.addObject("at | CENTER",new org.usfirst.frc.team5453.robot.commands.autonomous.CenterAsInitial());
 		chooser.addObject("Still !",new org.usfirst.frc.team5453.robot.commands.autonomous.Still());
 		SmartDashboard.putData("Auto mode",chooser);
 		gyroSys.reset();
+
+		CameraServer.getInstance().startAutomaticCapture("Camera 0",0);
+		CameraServer.getInstance().startAutomaticCapture("Camera 1",1);
 	}
 
 	/**
@@ -65,7 +70,7 @@ public class Robot extends TimedRobot{
 
 	@Override
 	public void disabledPeriodic(){
-		
+		// System.out.println(Robot.gyroSys.getHeading());
 		Scheduler.getInstance().run();
 	}
 
@@ -82,12 +87,12 @@ public class Robot extends TimedRobot{
 	 */
 	@Override
 	public void autonomousInit(){
-		intakeServoSys.setFullRight();
-		intakeServoSys.setFullLeft();
-		intakeServoSys.setFullRight();
-		intakeServoSys.setFullLeft();
-		intakeServoSys.setFullRight();
-		intakeServoSys.setFullLeft();
+		// intakeServoSys.setFullRight();
+		// intakeServoSys.setFullLeft();
+		// intakeServoSys.setFullRight();
+		// intakeServoSys.setFullLeft();
+		// intakeServoSys.setFullRight();
+		// intakeServoSys.setFullLeft();
 		intakeServoSys.setFullRight();
 
 		colorLoaded=true;

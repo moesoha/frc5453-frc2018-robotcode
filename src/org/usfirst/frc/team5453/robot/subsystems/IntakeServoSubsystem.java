@@ -44,17 +44,17 @@ public class IntakeServoSubsystem extends Subsystem{
 	}
 	
 	public void setFullRight(){
-		// servo.set(1.0);
-		servo.set(0.7); //use 0.7 instead of 1.0
+		servo.set(1.0);
+		// servo.set(0.7); //use 0.7 instead of 1.0
 	}
 
 	public void huajiTest(){
-		setFullRight();
-		setFullLeft();
-		setFullRight();
-		setFullLeft();
-		setFullRight();
-		setFullLeft();
+		// setFullRight();
+		// setFullLeft();
+		// setFullRight();
+		// setFullLeft();
+		// setFullRight();
+		// setFullLeft();
 		setFullRight();
 	}
 }
