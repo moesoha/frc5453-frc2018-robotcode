@@ -38,13 +38,13 @@ public class GoWithEncoderCommand extends Command{
 	}
 
 	protected void execute(){
-		Robot.drivingSys.tankDrive((distance>=0?-1:1)*speedRate,(distance>=0?1:-1)*speedRate,false);
+		Robot.drivingSys.tankDrive(speedRate,-speedRate,false);
 	}
 
 	protected boolean isFinished(){
 		double[] distances=Robot.drivingSys.encoderGetDistance();
 		double distanceAvg=(distances[0]+distances[1])/2;
-		distanceAvg=distances[1]; // Left Encoder is dead.
+		distanceAvg=distances[0]; // Right Encoder is dead.
 		// System.out.println((distance>=distanceAvg)+" "+(stopTimestamp<=System.currentTimeMillis())+" "+(timeLimitation));
 		return (distance<=distanceAvg)||((stopTimestamp<=System.currentTimeMillis())&&(timeLimitation));
 	}
