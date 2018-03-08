@@ -5,7 +5,7 @@ import org.usfirst.frc.team5453.robot.Robot;
 
 public class GoWithEncoderCommand extends Command{
 	double distance=0;
-	double speedRate=0.6;
+	double speedRate=0.6,speedRateR=-8;
 
 	boolean timeLimitation=false;
 	long maxExecutionTime=5000;
@@ -23,6 +23,13 @@ public class GoWithEncoderCommand extends Command{
 		speedRate=spdRate;
 	}
 
+	public GoWithEncoderCommand(double dst,double lSpdRate,double rSpdRate){
+		requires(Robot.drivingSys);
+		distance=dst;
+		speedRate=Math.abs(lSpdRate);
+		speedRateR=Math.abs(rSpdRate);
+	}
+
 	public GoWithEncoderCommand(double dst,double spdRate,long timeLimit){
 		requires(Robot.drivingSys);
 		distance=dst;
@@ -38,7 +45,7 @@ public class GoWithEncoderCommand extends Command{
 	}
 
 	protected void execute(){
-		Robot.drivingSys.tankDrive(speedRate,-speedRate,false);
+		Robot.drivingSys.tankDrive(speedRate,-((speedRateR>0)?speedRateR:speedRate),false);
 	}
 
 	protected boolean isFinished(){

@@ -18,9 +18,9 @@ public class DrivingCommand extends Command{
 		double speed;
 		if(RobotState.isOperatorControl()){
 			speed=RobotMap.drivingSpeedConstant[0];
-			/*for(int i=1;i<RobotMap.joystickDrivingSpeedControl.length;i++){
+			for(int i=1;i<RobotMap.joystickDrivingSpeedControl.length;i++){
 				speed=(Robot.oi.readButton(RobotMap.joystickDrivingSpeedControl[i],"drive")) ? (speed+RobotMap.drivingSpeedConstant[i]) : speed;
-			}*/	
+			}
 			Robot.drivingSys.tankDrive(-1*(Robot.oi.readAxis(RobotMap.joystickDrivingLeverL,"drive")*speed),1*(Robot.oi.readAxis(RobotMap.joystickDrivingLeverR,"drive")*speed),RobotMap.drivingSquaredInput);
 		}
 	}

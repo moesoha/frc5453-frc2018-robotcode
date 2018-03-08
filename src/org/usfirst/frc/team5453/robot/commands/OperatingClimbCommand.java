@@ -17,8 +17,9 @@ public class OperatingClimbCommand extends Command{
 	}
 
 	protected void execute(){
-		if(Robot.oi.readButton(RobotMap.joystickClimbLock,"operate")){
-			Robot.climbSys.set(speed);
+		speed=Robot.oi.readAxis(RobotMap.joystickClimbLever,"operate");
+		if(Math.abs(speed)>0.02){
+			Robot.climbSys.set(Math.abs(speed));
 		}
 		// speed=Robot.oi.readAxis(RobotMap.joystickClimbLever,"operate");
 		// if(speed>=0.2){

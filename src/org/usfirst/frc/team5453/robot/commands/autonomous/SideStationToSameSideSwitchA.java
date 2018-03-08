@@ -22,9 +22,6 @@ public class SideStationToSameSideSwitchA extends CommandGroup{
 		======Driver Station======
 	*/
 	public SideStationToSameSideSwitchA(boolean switchAtLeft){
-		addSequential(new TimedElevatorCommand(RobotMap.operatingElevatorSpeedLeverRate*0.7,700));
-		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant,false));
-
 		addSequential(new GoWithEncoderCommand(FieldSize.fromStationToSwitchLength-FieldSize.robotLength/2-7,0.8));
 		addSequential(new TurnWithGyroCommand((switchAtLeft?-1:1)*80));
 		addSequential(new TimedGoStraightCommand(0.6,1000));

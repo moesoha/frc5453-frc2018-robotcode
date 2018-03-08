@@ -4,10 +4,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 import org.usfirst.frc.team5453.robot.FieldSize;
 import org.usfirst.frc.team5453.robot.RobotMap;
-import org.usfirst.frc.team5453.robot.commands.TurnWithGyroCommand;
 import org.usfirst.frc.team5453.robot.commands.GoWithEncoderCommand;
 import org.usfirst.frc.team5453.robot.commands.SetIntakeCommand;
-import org.usfirst.frc.team5453.robot.commands.TimedElevatorCommand;
+import org.usfirst.frc.team5453.robot.commands.SleepCommand;
 import org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand;
 
 public class SideStationToSameSideScale extends CommandGroup{
@@ -22,12 +21,11 @@ public class SideStationToSameSideScale extends CommandGroup{
 		======Driver Station======
 	*/
 	public SideStationToSameSideScale(boolean scaleAtLeft){
-		addSequential(new TimedElevatorCommand(RobotMap.operatingElevatorSpeedLeverRate*0.7,1800));
-		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant,false));
-
-		addSequential(new GoWithEncoderCommand(FieldSize.fromStationToScaleLength-FieldSize.robotLength/2-7,0.8));
-		addSequential(new TurnWithGyroCommand((scaleAtLeft?-1:1)*80));
-		addSequential(new TimedGoStraightCommand(0.6,500));
-		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedConstant*-1,false));
+		addSequential(new SleepCommand(300));
+		addParallel(new TheFuckingCommandGroup());
+		addSequential(new GoWithEncoderCommand(FieldSize.fromStationToScaleLength-FieldSize.robotLength/2-7,0.7,0.8));
+		addSequential(new TimedGoStraightCommand(0.2,4000));
+		addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedSlowConstant*-1,false),1000);
+		addSequential(new GoWithEncoderCommand(48,0.4));
 	}
 }
