@@ -19,7 +19,8 @@ public class RightAsInitial extends Command{
 			new SideStationToSameSideScale(true).start();
 		}else if(colorLocationString.charAt(0)==here){
 			System.out.println("  Auto. Selected: side to same-side switch");
-			new SideStationToSameSideSwitchA(true).start();
+			// new SideStationToSameSideSwitchA(true).start();
+			new org.usfirst.frc.team5453.robot.commands.GoWithEncoderCommand(110,0.7,0.8).start();
 		}else{
 			System.out.println("  Auto. Selected: side to another-side scale");
 			new org.usfirst.frc.team5453.robot.commands.GoWithEncoderCommand(110,0.7,0.8).start();

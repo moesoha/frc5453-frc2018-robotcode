@@ -40,7 +40,7 @@ public class RobotMap{
 	public static double[] drivingSpeedConstant={1.0,-0.4,-0.6};
 	public static double operatingElevatorSpeedLeverRate=0.9;
 	public static double operatingIntakeSpeedConstant=0.75;
-	public static double operatingIntakeSpeedSlowConstant=0.35;
+	public static double operatingIntakeSpeedSlowConstant=0.45;
 	public static double operatingClimbSpeedConstant=0.75;
 	
 	/* Joystick Port Definition */
@@ -51,18 +51,18 @@ public class RobotMap{
 	public static int joystickDrivingLeverR=3;
 	public static int[] joystickDrivingSpeedControl={0,7,5};
 	public static int joystickElevatorLever=1;
-	public static int joystickClimbLever=1;
+	public static int joystickClimbLever=5;
 	/* Joystick Button Binding Definition */
-	public static int joystickIntakeIn=1;
+	public static int joystickIntakeIn=3;
 	public static int joystickIntakeOut=4;
-	public static int joystickIntakeSlowIn=2;
-	public static int joystickIntakeSlowOut=3;
+	public static int joystickIntakeSlowIn=1;
+	public static int joystickIntakeSlowOut=2;
 	// public static int joystickIntakeClockwise=3;
 	// public static int joystickIntakeAntiClockwise=1;
-	public static int joystickIntakeServoSetFullLeft=9;
-	public static int joystickIntakeServoSetFullRight=10;
-	public static int joystickClimb=7;
-	public static int joystickClimbLock=8;
+	public static int joystickIntakeServoSetFullLeft=7;
+	public static int joystickIntakeServoSetFullRight=8;
+	public static int joystickClimb=5;
+	public static int joystickClimbLock=6;
 	
 	/* Encoder Parameter */
 	public static double encoderPulsePerRevolution=1440;

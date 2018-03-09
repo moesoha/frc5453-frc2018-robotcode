@@ -9,7 +9,7 @@ public class GyroAHRSSubsystem extends Subsystem{
 	AHRS ahrs;
 	double angle;
 	boolean isReady=false;
-	double fuckingHeading,lastHeading=0;
+	double lastHeading=0;
 	double awesomeYaw=0;
 
 	public GyroAHRSSubsystem(){
@@ -24,8 +24,7 @@ public class GyroAHRSSubsystem extends Subsystem{
 	public void initDefaultCommand(){}
 
 	public double getHeading(){
-		lastHeading=ahrs.getFusedHeading();
-		return lastHeading;
+		return ahrs.getFusedHeading();
 	}
 	
 	public double getYaw(){
@@ -38,11 +37,12 @@ public class GyroAHRSSubsystem extends Subsystem{
 		}else{
 			awesomeYaw+=lastDelta;
 		}
+		lastHeading=currentHeading;
 		return awesomeYaw;
 	}
 	
 	public void reset(){
 		ahrs.reset();
-		fuckingHeading=getHeading();
+		lastHeading=getHeading();
 	}
 }

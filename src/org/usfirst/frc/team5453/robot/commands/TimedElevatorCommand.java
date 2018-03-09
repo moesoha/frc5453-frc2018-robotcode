@@ -20,7 +20,7 @@ public class TimedElevatorCommand extends Command{
 	}
 
 	protected void execute(){
-		Robot.elevatorSys.set(speed);
+		Robot.elevatorSys.set(-speed);
 	}
 
 	protected boolean isFinished(){
