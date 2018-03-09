@@ -52,4 +52,19 @@ public class OI{
 				return false;
 		}
 	}
+	
+	public int readPOV(String which){
+		// System.out.println(operating.getPOV());
+		// System.out.println(operating.getPOVCount());
+		// System.out.println();
+		switch(which){
+			case "drive":
+				return driving.getPOV();
+			case "operate":
+				return operating.getPOV();
+			default:
+				System.out.println("no method for "+which);
+				return -2147483648;
+		}
+	}
 }

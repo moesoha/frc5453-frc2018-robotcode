@@ -17,7 +17,10 @@ public class OperatingElevatorCommand extends Command{
 
 	protected void execute(){
 		speed=Robot.oi.readAxis(RobotMap.joystickElevatorLever,"operate");
-		if(Math.abs(speed)>=0.02){
+		int safePov=Robot.oi.readPOV("operate");
+		if((safePov)>=315 || (safePov<=45 && safePov>=0)){
+			Robot.elevatorSys.set(0.1);
+		}else if(Math.abs(speed)>=0.02){
 			Robot.elevatorSys.set(speed*RobotMap.operatingElevatorSpeedLeverRate);
 		}else{
 			Robot.elevatorSys.set(0);

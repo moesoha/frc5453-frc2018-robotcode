@@ -1,7 +1,6 @@
 package org.usfirst.frc.team5453.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.DriverStation;
 
 public class ShePiPushTrigger extends Command{
 	boolean isLeft=true;
@@ -14,11 +13,8 @@ public class ShePiPushTrigger extends Command{
 	}
 
 	protected void execute(){
-		String colorLocationString=DriverStation.getInstance().getGameSpecificMessage();
-		if(colorLocationString.charAt(0)==(isLeft?'L':'R')){
-			System.out.println("  She-Pi Start!");
-			new ShePiPushTimed(colorLocationString.charAt(0)==(isLeft?'L':'R')).start();
-		}
+		System.out.println("  She-Pi Start!");
+		new ShePiPushTimed(isLeft).start();
 	}
 
 	protected boolean isFinished(){
