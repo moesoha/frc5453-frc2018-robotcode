@@ -38,9 +38,11 @@ public class Robot extends TimedRobot{
 		powerSys.initTable();
 		
 		chooser.addDefault("Go straight (Encoder)",new org.usfirst.frc.team5453.robot.commands.GoWithEncoderCommand(110,0.7,0.8));
+		chooser.addObject("Go straight (Time)",new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,5000));
+		chooser.addObject("LEFT (Time) She-Pi-UP",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushUpgradedTrigger(true));
+		chooser.addObject("RIGHT (Time) She-Pi-UP",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushUpgradedTrigger(false));
 		chooser.addObject("LEFT (Time) She-Pi",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushTrigger(true));
 		chooser.addObject("RIGHT (Time) She-Pi",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushTrigger(false));
-		chooser.addObject("Go straight (Time)",new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,5000));
 		chooser.addObject("<- at LEFT",new org.usfirst.frc.team5453.robot.commands.autonomous.LeftAsInitial());
 		chooser.addObject("at RIGHT ->",new org.usfirst.frc.team5453.robot.commands.autonomous.RightAsInitial());
 		chooser.addObject("at | CENTER",new org.usfirst.frc.team5453.robot.commands.autonomous.CenterAsInitial());
