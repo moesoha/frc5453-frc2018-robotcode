@@ -26,11 +26,9 @@ public class ShePiPushUpgradeTimed extends CommandGroup{
 			if(colorLocationFirst==(isLeft?'L':'R')){
 				addSequential(new TimedElevatorCommand(0.5,4000));
 				addParallel(new TimedElevatorCommand(0.2,15000));
-				addSequential(new TimedArcadeGoCommand(0.6,0.3,3000));
-				addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedSlowConstant*-1,false),1000);
+				addSequential(new TimedArcadeGoCommand(0.6,0.31,3000));
+				addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedSlowConstant*-1,false),1500);
 			}
-			// addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(-0.6,1000));
-			// addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.8,(colorLocationFirst=='L'?1:-1)*0.67,5000));
 		}
 	}
 }
