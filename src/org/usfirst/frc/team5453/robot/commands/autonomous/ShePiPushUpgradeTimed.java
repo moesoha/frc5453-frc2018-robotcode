@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 import org.usfirst.frc.team5453.robot.RobotMap;
 import org.usfirst.frc.team5453.robot.commands.SetIntakeCommand;
-import org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand;
 import org.usfirst.frc.team5453.robot.commands.TimedElevatorCommand;
 
 public class ShePiPushUpgradeTimed extends CommandGroup{
@@ -26,7 +25,7 @@ public class ShePiPushUpgradeTimed extends CommandGroup{
 			if(colorLocationFirst==(isLeft?'L':'R')){
 				addSequential(new TimedElevatorCommand(0.5,4000));
 				addParallel(new TimedElevatorCommand(0.2,15000));
-				addSequential(new TimedArcadeGoCommand(0.6,0.31,3000));
+				addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.6,0.31,3000));
 				addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedSlowConstant*-1,false),1500);
 			}else{
 				addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.6,(isLeft?-1:1)*0.16,5000));
