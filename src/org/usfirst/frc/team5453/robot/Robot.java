@@ -51,7 +51,7 @@ public class Robot extends TimedRobot{
 		gyroSys.reset();
 
 		CameraServer.getInstance().startAutomaticCapture("Camera 0",0);
-		CameraServer.getInstance().startAutomaticCapture("Camera 1",1);
+		// CameraServer.getInstance().startAutomaticCapture("Camera 1",1);
 	}
 
 	@Override
