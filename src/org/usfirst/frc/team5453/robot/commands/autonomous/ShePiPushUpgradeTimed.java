@@ -9,7 +9,7 @@ import org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand;
 import org.usfirst.frc.team5453.robot.commands.TimedElevatorCommand;
 
 public class ShePiPushUpgradeTimed extends CommandGroup{
-	// SWITCH only
+	// Same-side SWITCH or SCALE only
 	public ShePiPushUpgradeTimed(boolean isLeft){
 		char colorLocationFirst=DriverStation.getInstance().getGameSpecificMessage().charAt(0);
 		char colorLocationSecond=DriverStation.getInstance().getGameSpecificMessage().charAt(1);
@@ -28,6 +28,8 @@ public class ShePiPushUpgradeTimed extends CommandGroup{
 				addParallel(new TimedElevatorCommand(0.2,15000));
 				addSequential(new TimedArcadeGoCommand(0.6,0.31,3000));
 				addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedSlowConstant*-1,false),1500);
+			}else{
+				addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.6,(isLeft?-1:1)*0.16,5000));
 			}
 		}
 	}
