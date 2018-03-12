@@ -12,6 +12,7 @@ public class ShePiPushTimed extends CommandGroup{
 	public ShePiPushTimed(boolean isLeft){
 		char colorLocationFirst=DriverStation.getInstance().getGameSpecificMessage().charAt(0);
 		if(colorLocationFirst==(isLeft?'L':'R')){
+			addSequential(new org.usfirst.frc.team5453.robot.commands.SleepCommand(500));
 			addSequential(new TimedElevatorCommand(0.5,3000));
 			addParallel(new TimedElevatorCommand(0.2,4000));
 			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,3000));
