@@ -50,8 +50,8 @@ public class Robot extends TimedRobot{
 		SmartDashboard.putData("Auto mode",chooser);
 		gyroSys.reset();
 
-		CameraServer.getInstance().startAutomaticCapture("Camera 0",0);
-		// CameraServer.getInstance().startAutomaticCapture("Camera 1",1);
+		CameraServer.getInstance().startAutomaticCapture("Camera 0",0).setResolution(160,120);
+		CameraServer.getInstance().startAutomaticCapture("Camera 1",1).setResolution(320,240);
 	}
 
 	@Override
@@ -77,6 +77,9 @@ public class Robot extends TimedRobot{
 		}
 		if(intakeSys.isMotorBinded){
 			intakeSys.reset();
+		}
+		if(intakeServoSys.isBinded){
+			intakeServoSys.disable();
 		}
 	}
 

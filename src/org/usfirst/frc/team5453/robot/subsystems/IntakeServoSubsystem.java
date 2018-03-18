@@ -6,6 +6,7 @@ import org.usfirst.frc.team5453.robot.RobotMap;
 
 public class IntakeServoSubsystem extends Subsystem{
 	private Servo servo;
+	public boolean isBinded=false;
 	
 	public void initDefaultCommand(){
 		bindServo();
@@ -17,6 +18,7 @@ public class IntakeServoSubsystem extends Subsystem{
 	
 	public void bindServo(){
 		servo=new Servo(RobotMap.pwmServoIntake);
+		isBinded=true;
 	}
 
 	public void setAngle(double degree){
@@ -29,6 +31,7 @@ public class IntakeServoSubsystem extends Subsystem{
 			return;
 		}
 		servo.set(value);
+		//servo.setDisabled();
 	}
 
 	public double getAngle(){
@@ -38,14 +41,20 @@ public class IntakeServoSubsystem extends Subsystem{
 	public double get(){
 		return servo.get();
 	}
+
+	public void disable(){
+		servo.setDisabled();
+	}
 	
 	public void setFullLeft(){
 		servo.set(0.0);
+		//servo.setDisabled();
 	}
 	
 	public void setFullRight(){
 		servo.set(1.0);
 		// servo.set(0.7); //use 0.7 instead of 1.0
+		//servo.setDisabled();
 	}
 
 	public void huajiTest(){
