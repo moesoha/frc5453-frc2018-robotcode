@@ -16,7 +16,7 @@ public class ShePiPushTimed extends CommandGroup{
 			addSequential(new TimedElevatorCommand(0.5,3000));
 			addParallel(new TimedElevatorCommand(0.2,4000));
 			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,3000));
-			addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedSlowConstant*-1,false),1000);
+			addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedAutoConstant*-1,false),1000);
 		}else{
 			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.6,(isLeft?-1:1)*0.31,5000));
 		}
