@@ -37,19 +37,20 @@ public class RobotMap{
 	public static boolean drivingSquaredInput=true;
 	
 	/* Constant Definition */
-	public static double[] drivingSpeedConstant={0.8,-0.2,+0.2};
+	public static double[] drivingSpeedConstant={0.7,-0.2,+0.22};
 	public static double operatingElevatorSpeedLeverRate=0.9;
 	public static double operatingIntakeSpeedConstant=0.75;
 	public static double operatingIntakeSpeedSlowConstant=0.45;
+	public static double operatingIntakeSpeedAutoConstant=0.35;
 	public static double operatingClimbSpeedConstant=0.75;
-	
+
 	/* Joystick Port Definition */
 	public static int joystickDriving=0;
 	public static int joystickOperating=1;
 	/* Joystick Axis Binding Definition */
 	public static int joystickDrivingLeverL=1;
 	public static int joystickDrivingLeverR=3;
-	public static int[] joystickDrivingSpeedControl={0,7,8};
+	public static int[] joystickDrivingSpeedControl={0,5,6};
 	public static int joystickElevatorLever=1;
 	public static int joystickClimbLever=5;
 	/* Joystick Button Binding Definition */
