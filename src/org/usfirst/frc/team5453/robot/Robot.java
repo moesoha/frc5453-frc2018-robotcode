@@ -43,6 +43,9 @@ public class Robot extends TimedRobot{
 		chooser.addObject("RIGHT (Time) She-Pi-UP",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushUpgradedTrigger(false));
 		chooser.addObject("LEFT (Time) She-Pi",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushTrigger(true));
 		chooser.addObject("RIGHT (Time) She-Pi",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushTrigger(false));
+		chooser.addObject("CENTER (Time) She-Pi",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiCenterTrigger());
+		chooser.addObject("LEFT (Time) She-Pi-Rt-Switch",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushRtAngleSwitchTrigger(true));
+		chooser.addObject("RIGHT (Time) She-Pi-Rt-Switch",new org.usfirst.frc.team5453.robot.commands.autonomous.ShePiPushRtAngleSwitchTrigger(false));
 		chooser.addObject("<- at LEFT",new org.usfirst.frc.team5453.robot.commands.autonomous.LeftAsInitial());
 		chooser.addObject("at RIGHT ->",new org.usfirst.frc.team5453.robot.commands.autonomous.RightAsInitial());
 		chooser.addObject("at | CENTER",new org.usfirst.frc.team5453.robot.commands.autonomous.CenterAsInitial());
