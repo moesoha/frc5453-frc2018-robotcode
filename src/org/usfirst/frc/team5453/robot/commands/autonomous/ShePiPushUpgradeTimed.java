@@ -21,7 +21,7 @@ public class ShePiPushUpgradeTimed extends CommandGroup{
 			addParallel(new TimedElevatorCommand(0.2,2000));
 			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(-0.4,3800));
 		}else{
-			addSequential(new ShePiPushTimed(isLeft));
+			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.6,(isLeft?-1:1)*0.31,5000));
 		}
 	}
 }
