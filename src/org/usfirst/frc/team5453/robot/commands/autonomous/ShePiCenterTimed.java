@@ -15,18 +15,18 @@ public class ShePiCenterTimed extends CommandGroup{
 			addSequential(new org.usfirst.frc.team5453.robot.commands.SleepCommand(500));
 			addSequential(new TimedElevatorCommand(0.5,3000));
 			addParallel(new TimedElevatorCommand(0.2,5000));
-			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.61,-0.48,2500));
-			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.7,0.42,1200));
-			addParallel(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.3,3800));
+			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.61,-0.48,2550));
+			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.7,0.45,1300));
+			addParallel(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.4,3800));
 			addSequential(new org.usfirst.frc.team5453.robot.commands.SleepCommand(500));
 			addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedAutoConstant*-1,false),1000);
 		}else if(colorLocationFirst=='R'){
 			addSequential(new org.usfirst.frc.team5453.robot.commands.SleepCommand(500));
 			addSequential(new TimedElevatorCommand(0.5,3000));
 			addParallel(new TimedElevatorCommand(0.2,5000));
-			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.6,0.3,2300));
-			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.7,-0.6,1200));
-			addParallel(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.3,3800));
+			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.62,0.38,2400));
+			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.7,-0.62,1300));
+			addParallel(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.4,3800));
 			addSequential(new org.usfirst.frc.team5453.robot.commands.SleepCommand(500));
 			addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedAutoConstant*-1,false),1000);
 		}
