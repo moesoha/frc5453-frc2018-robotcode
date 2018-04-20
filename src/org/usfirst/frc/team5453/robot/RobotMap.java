@@ -37,7 +37,7 @@ public class RobotMap{
 	public static boolean drivingSquaredInput=true;
 	
 	/* Constant Definition */
-	public static double[] drivingSpeedConstant={0.7,-0.2,+0.22};
+	public static double[] drivingSpeedConstant={0.7,-0.2,+0.3};
 	public static double operatingElevatorSpeedLeverRate=0.9;
 	public static double operatingIntakeSpeedConstant=0.75;
 	public static double operatingIntakeSpeedSlowConstant=0.45;

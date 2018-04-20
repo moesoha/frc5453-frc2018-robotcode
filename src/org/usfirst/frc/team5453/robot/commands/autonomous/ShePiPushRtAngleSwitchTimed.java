@@ -21,7 +21,7 @@ public class ShePiPushRtAngleSwitchTimed extends CommandGroup{
 			addSequential(new org.usfirst.frc.team5453.robot.commands.SleepCommand(500));
 			addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedAutoConstant*-1,false),1000);
 		}else{
-			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.6,(isLeft?-1:1)*0.31,5000));
+			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,5000));
 		}
 	}
 }
