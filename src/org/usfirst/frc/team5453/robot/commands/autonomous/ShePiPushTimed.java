@@ -18,7 +18,7 @@ public class ShePiPushTimed extends CommandGroup{
 			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,3000));
 			addSequential(new SetIntakeCommand(RobotMap.operatingIntakeSpeedAutoConstant*-1,false),1000);
 		}else{
-			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,5000));
+			addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(0.6,4000));
 		}
 		// addSequential(new org.usfirst.frc.team5453.robot.commands.TimedGoStraightCommand(-0.6,1000));
 		// addSequential(new org.usfirst.frc.team5453.robot.commands.TimedArcadeGoCommand(0.8,(colorLocationFirst=='L'?1:-1)*0.67,5000));
